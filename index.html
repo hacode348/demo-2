@@ -16,9 +16,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#1e3a8a",
-                        secondary: "#fbbf24",
-                        accent: "#1e40af"
+                        primary: "#000000",
+                        secondary: "#FF7A00",
+                        accent: "#2E2E2E"
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -45,7 +45,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
 .hero-gradient {
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%), url('571795314_17842923120607946_7779213409472495373_n.jpg');
+    background: linear-gradient(135deg, #000000 0%, #FF7A00 100%), url('https://i.pinimg.com/736x/3f/67/38/3f6738da51d3c6d125c434d2b05bd0a1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -58,6 +58,98 @@
         .hover-lift:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Mobile Responsiveness for Header */
+        @media (max-width: 768px) {
+            header nav {
+                padding: 0.75rem 1rem;
+            }
+
+            header .logo {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            header .logo .w-12 {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            header .logo img {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            header .logo h1 {
+                font-size: 1.125rem;
+                line-height: 1.25;
+                margin: 0.25rem 0 0 0;
+            }
+
+            header .logo p {
+                font-size: 0.625rem;
+                margin: 0;
+            }
+
+            header .mobile-lang-button {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+                min-height: 2rem;
+            }
+
+            header #mobileMenuButton {
+                padding: 0.5rem;
+                min-width: 2rem;
+                min-height: 2rem;
+            }
+
+    header #mobileMenu {
+        padding: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    header #mobileMenu a,
+            header #mobileMenu button {
+                padding: 0.75rem 0;
+                font-size: 1rem;
+                min-height: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* RTL Support for Arabic */
+            [dir="rtl"] header .logo {
+                text-align: right;
+            }
+
+            [dir="rtl"] header .mobile-lang-button {
+                flex-direction: row-reverse;
+            }
+
+            [dir="rtl"] header #mobileMenuButton {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header nav {
+                padding: 0.5rem 0.75rem;
+            }
+
+            header .logo h1 {
+                font-size: 1rem;
+            }
+
+            header .logo p {
+                font-size: 0.6rem;
+            }
+
+            header #mobileMenu {
+                padding: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -72,7 +164,7 @@
                         <img src="571795314_17842923120607946_7779213409472495373_n.jpg" alt="Joudecar Tanger Logo" class="w-12 h-12 rounded-full object-cover">
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold text-primary" data-translate="company-name">Joudecar Tanger</h1>
+                        <h1 class="text-xl font-bold text-primary mb-2" data-translate="company-name">Joudecar Tanger</h1>
                         <p class="text-xs text-gray-600" data-translate="car-rental">Location de voitures</p>
                     </div>
                 </div>
@@ -106,30 +198,30 @@
                 <button class="md:hidden text-primary" id="mobileMenuButton">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
-                
+
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-4">
                     <a href="#fleet" class="text-gray-700 hover:text-primary transition-colors" data-translate="nav-fleet">Notre Flotte</a>
                     <a href="#reviews" class="text-gray-700 hover:text-primary transition-colors" data-translate="nav-reviews">Avis</a>
                     <a href="#location" class="text-gray-700 hover:text-primary transition-colors" data-translate="nav-location">Emplacement</a>
                     <a href="#contact" class="text-gray-700 hover:text-primary transition-colors" data-translate="nav-contact">Contact</a>
                     <div class="relative">
-                        <button id="lang-button" class="bg-gray-200 text-gray-700 px-3 py-2 md:px-3 md:py-2 px-4 py-3 rounded-full hover:bg-gray-300 transition-colors flex items-center space-x-1 text-sm md:text-sm text-base font-medium min-h-[44px] md:min-h-0">
-                            <span id="current-flag" class="text-lg md:text-base">🇺🇸</span>
+                        <button id="lang-button" class="bg-gray-200 text-gray-700 px-4 py-3 rounded-full hover:bg-gray-300 transition-colors flex items-center space-x-1 text-base font-medium min-h-[44px]">
+                            <span id="current-flag" class="text-lg">🇺🇸</span>
                             <span id="current-lang">EN</span>
                             <i class="fas fa-chevron-down text-xs ml-1"></i>
                         </button>
-                        <div id="lang-dropdown" class="hidden absolute right-0 md:right-0 left-0 md:left-auto bg-white rounded-lg shadow-lg p-2 mt-1 z-60 min-w-[80px] md:min-w-[80px] w-full md:w-auto">
-                            <div class="lang-option cursor-pointer px-3 py-3 md:px-3 md:py-2 rounded hover:bg-gray-100 flex items-center space-x-2 min-h-[44px]" data-lang="en">
-                                <span class="text-lg md:text-base">🇺🇸</span>
+                        <div id="lang-dropdown" class="hidden absolute right-0 bg-white rounded-lg shadow-lg p-2 mt-1 z-60 min-w-[80px] w-auto">
+                            <div class="lang-option cursor-pointer px-3 py-2 rounded hover:bg-gray-100 flex items-center space-x-2 min-h-[44px]" data-lang="en">
+                                <span class="text-lg">🇺🇸</span>
                                 <span>EN</span>
                             </div>
-                            <div class="lang-option cursor-pointer px-3 py-3 md:px-3 md:py-2 rounded hover:bg-gray-100 flex items-center space-x-2 min-h-[44px]" data-lang="fr">
-                                <span class="text-lg md:text-base">🇫🇷</span>
+                            <div class="lang-option cursor-pointer px-3 py-2 rounded hover:bg-gray-100 flex items-center space-x-2 min-h-[44px]" data-lang="fr">
+                                <span class="text-lg">🇫🇷</span>
                                 <span>FR</span>
                             </div>
-                            <div class="lang-option cursor-pointer px-3 py-3 md:px-3 md:py-2 rounded hover:bg-gray-100 flex items-center space-x-2 min-h-[44px]" data-lang="ar">
-                                <span class="text-lg md:text-base">🇦🇪</span>
+                            <div class="lang-option cursor-pointer px-3 py-2 rounded hover:bg-gray-100 flex items-center space-x-2 min-h-[44px]" data-lang="ar">
+                                <span class="text-lg">🇦🇪</span>
                                 <span>AR</span>
                             </div>
                         </div>
@@ -138,6 +230,7 @@
                         Réserver maintenant
                     </button>
                 </div>
+            </div>
             </div>
             
             <!-- Mobile Menu -->
@@ -162,7 +255,7 @@
 
     <!-- Hero Section -->
     <section class="hero-gradient text-white">
-        <div class="container mx-auto px-4 py-20" >
+        <div class="container mx-auto px-4 py-20 __web-inspector-hide-shortcut__" >
 
             <div class="max-w-4xl mx-auto text-center animate-fade-in">
 
@@ -295,8 +388,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Review 1 -->
                 <div class="bg-gray-50 rounded-xl p-6 hover-lift">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                    <div class="flex items-center mb-4 gap-3">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold">
                             SA
                         </div>
                         <div>
@@ -315,8 +408,8 @@
                 
                 <!-- Review 2 -->
                 <div class="bg-gray-50 rounded-xl p-6 hover-lift">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                    <div class="flex items-center mb-4 gap-3">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold">
                             IB
                         </div>
                         <div>
@@ -332,11 +425,11 @@
                     </div>
                     <p class="text-gray-600 italic" data-translate="review-2-comment">"Équipe très professionnelle et prix abordables. Le Dacia Sandero Stepway était parfait pour notre voyage autour de Tanger. Hautement recommandé !"</p>
                 </div>
-                
+
                 <!-- Review 3 -->
                 <div class="bg-gray-50 rounded-xl p-6 hover-lift">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                    <div class="flex items-center mb-4 gap-3">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold">
                             YM
                         </div>
                         <div>
@@ -640,17 +733,17 @@
                 "copyright": "© 2024 Joudecar Tanger. Tous droits réservés. | Tanger, Maroc"
             },
             "ar": {
-                "page-title": "جودكار طنجة - تأجير سيارات سريع وميسور التكلفة وموثوق في طنجة",
-                "company-name": "جودكار طنجة",
+                "page-title": "Joudecar Tanger - تأجير سيارات سريع وميسور التكلفة وموثوق في طنجة",
+                "company-name": "Joudecar Tanger",
                 "car-rental": "تأجير سيارات",
                 "nav-fleet": "أسطولنا",
                 "nav-reviews": "التقييمات",
                 "nav-location": "الموقع",
                 "nav-contact": "اتصل بنا",
                 "book-now": "احجز الآن",
-                "hero-title": "جودكار طنجة",
+                "hero-title": "Joudecar Tanger",
                 "hero-subtitle": "تأجير سيارات سريع وميسور التكلفة وموثوق في طنجة",
-                "call-now": "اتصل الآن: +212 701-141248",
+                "call-now": "اتصل الآن: +212701141248",
                 "whatsapp-us": "تواصل معنا عبر واتساب",
                 "fleet-title": "أسطول سياراتنا",
                 "fleet-description": "اختر من سياراتنا الحديثة والمُحافظ عليها جيدًا بأسعار تنافسية",
@@ -785,10 +878,12 @@
             elements.forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+                    element.innerHTML = translations[lang][key];
                 }
             });
         }
     </script>
 </body>
 </html>
+
+
